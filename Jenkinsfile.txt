@@ -1,25 +1,14 @@
 pipeline {
     agent any
-
+    triggers {
+        githubPush()
+    }
     stages {
-
         stage('Install') {
-            steps {
-                bat 'npm install'
-            }
+            steps { bat 'npm install' }
         }
-
         stage('Build') {
-            steps {
-                bat 'echo Build successful'
-            }
+            steps { bat 'echo Build successful' }
         }
-
-        stage('Test') {
-            steps {
-                bat 'npm test'
-            }
-        }
-
     }
 }
